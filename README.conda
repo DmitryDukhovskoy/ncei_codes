@@ -1,0 +1,56 @@
+
+Using miniconda3
+cd $HOME
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+mkdir condatmp
+TMPDIR=$HOME/condatmp/ sh Miniconda3-latest-Linux-x86_64.sh
+
+The TMPDIR is required, as some of our servers have the /tmp directory set "noexec" (does not allow execution of scripts/binaries, for security). This modifies where miniconda stores temporary files for the duration of the install. You may remove the condatmp directory after installation completes.
+
+This will download the installer to your home directory, and launch it.
+
+Accept the license when asked.
+
+Press enter to accept the default installation location (which should be $HOME/miniconda3)
+
+Answer 'no' to initialize Miniconda3 (it should be the default answer), unless you really do want to invoke the miniconda environment each time you log in (this will make an addition to your .bashrc file).
+
+Instructions are provided on screen for entering the newly created python environment, but if you followed the above steps you can use:
+
+eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
+
+alias's are created in .bashrc:
+alias pyenv='eval "$($HOME/miniconda3/bin/conda shell.bash hook)"'
+alias start_conda='eval "$($HOME/miniconda3/bin/conda shell.bash hook)"'
+
+---------------------------------------
+ACTIVATE CONDA:
+
+start_conda (alias set in .bashrc)
+Activate your working environment in conda, e.g. woa_anls :
+(miniconda3)dsd@rhw9183:~$ conda activate woa_anls
+(woa_anls)dsd@rhw9183:~$ which ipython
+~/miniconda3/envs/woa_anls/bin/ipython
+
+and deactivate with
+
+conda deactivate (don't Ctrl-D, that will close the entire shell)
+
+You can replace bash in the eval line with any other preferred shell (cat /etc/shells to see the available shells on the system)
+
+
+Read about conda environment:
+https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+In this website:
+To create an environment with a specific version of Python:
+conda create -n myenv<e.g. woa_anls> python=3.6
+This creates envs dir:
+ environment location: /data/home004/dmitry.dukhovskoy/miniconda3/envs/woa_anls
+
+To install modules:
+in conda and in the environment:
+conda install [options] module
+e.g. (woa_anls)dsd@rhw9180:rossby$ conda install -c conda-forge netcdf4
+
+

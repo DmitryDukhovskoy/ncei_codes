@@ -1,0 +1,41 @@
+Hernan:
+Hello,
+
+Last time, I was tasked with generating boxes with data that could be used for testing for normality. Dmitry then could use such data to adapt his normality tests codes.
+ 
+In (star) /data/home004/hernan.garcia/work/FOR/WODQC
+
+I generated outXXXX.dat files; where XXXX is a box number where there is at least 5 or more valid data. I used O2 annual fields simply as an example. There are 3027 boxes (i.e., out0001 to out3027.dat), each box is 5x5 deg. The file outboxes.dat contains the list of all boxes including file name, start and end latitude, start and end longitude (degrees)
+
+
+06/03/22:
+Hello,
+
+Based on our conversation at our meeting, I have regenerated the 5x5 degree boxes. This time, the grid boxes contain data between 200-300 m depth to increase the number of data values.
+
+outxxxx.dat (lat lon value depth)
+where xxxx is box number (0001 - 1192)
+outxxxx.dat contains only valid data in the corresponding 5x5 deg box
+Data corresponds to the WOA18 o000 values.
+
+outboxes.dat (boxfilename minlat maxlat minlon maxlon deltalat deltalon numberofobs boxnumber)
+
+Lat: -90, 90 deg
+lon: -180,180 deg
+minlat : box start lat
+maxlat: box end lat
+minlon: box start lon
+maxlon: box end lon
+deltalat: lati degree range of box = 5-deg
+deltalon: lon degree range of box = 5deg
+numberofobs: number of valid observations (min 10, max=125)
+boxnumber: 1-1192
+
+/data/home004/hernan.garcia/work/FOR/WODQC
+
+I will shortly work on providing data in the open ocean portion of the North Atlantic using depths (200-300 m)
+
+--------------------
+
+
+
